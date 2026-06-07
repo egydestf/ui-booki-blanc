@@ -1,0 +1,40 @@
+# dependencies
+node_modules/
+
+# next
+.next/
+out/
+
+# opennext
+.open-next/
+
+# cloudflare
+.wrangler/
+
+# env
+.env
+.env.local
+.env.development
+.env.production
+.env*.local
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# editor
+.vscode/settings.json
+.idea/
+
+# macos
+.DS_Store
+
+# windows
+Thumbs.db
+
+# typescript
+*.tsbuildinfo
+
+# other
+Blueprint.md
