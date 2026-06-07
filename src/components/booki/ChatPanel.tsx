@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect, useCallback, useState } from "react";
+import { useRef, useEffect, useCallback } from "react";
 import type { ChatMessage, RAGChatRequest, BookRecommendation } from "@/types";
 import MessageBubble from "@/components/booki/MessageBubble";
 import ChatInput from "@/components/booki/ChatInput";
@@ -34,7 +34,6 @@ const ChatPanel = ({
 }: ChatPanelProps) => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
-  const [pendingQuery, setPendingQuery] = useState<string>("");
 
   // Auto-scroll to bottom on new messages
   useEffect(() => {
@@ -43,11 +42,7 @@ const ChatPanel = ({
 
   // Handle suggestion chip click from EmptyState
   const handleSuggestionClick = useCallback((query: string) => {
-    setPendingQuery(query);
-    // Auto-submit the suggestion
     onSendMessage({ query });
-    // Clear pending after a brief delay
-    setTimeout(() => setPendingQuery(""), 100);
   }, [onSendMessage]);
 
   const isEmpty = messages.length === 0;
@@ -62,7 +57,7 @@ const ChatPanel = ({
         {isEmpty ? (
           <EmptyState onSuggestionClick={handleSuggestionClick} />
         ) : (
-          <div className="mx-auto max-w-3xl space-y-4 px-4 py-6 sm:px-6">
+          <div className="mx-auto max-w-3xl space-y-5 px-5 py-8 sm:px-7">
             {messages.map((msg) => (
               <MessageBubble
                 key={msg.id}
@@ -121,7 +116,6 @@ const ChatPanel = ({
         <ChatInput
           onSubmit={onSendMessage}
           isLoading={isLoading}
-          initialQuery={pendingQuery}
         />
       </div>
     </div>

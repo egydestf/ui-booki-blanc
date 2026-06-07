@@ -95,11 +95,11 @@ const ChatInput = ({ onSubmit, isLoading }: ChatInputProps) => {
   );
 
   return (
-    <div className="border-t border-gray-100 bg-white/80 backdrop-blur-md px-4 py-3">
+    <div className="border-t border-gray-100 bg-white/80 backdrop-blur-md px-5 py-4">
       {/* ── Filter Panel (collapsible) ─────────────────────────────────── */}
       {showFilters && (
-        <div className="mb-3 animate-message-appear">
-          <div className="flex flex-wrap items-center gap-2 rounded-xl bg-neutral-creamLight/60 px-3 py-2.5">
+        <div className="mb-4 animate-message-appear">
+          <div className="flex flex-wrap items-center gap-2.5 rounded-xl bg-neutral-creamLight/60 px-4 py-3">
             {/* Jenjang */}
             <div className="flex items-center gap-1.5">
               <span className="text-xs font-medium text-gray-400">Jenjang</span>
@@ -110,10 +110,9 @@ const ChatInput = ({ onSubmit, isLoading }: ChatInputProps) => {
                     type="button"
                     onClick={() => setFilterJenjang(filterJenjang === j ? "" : j)}
                     className={`rounded-lg px-2.5 py-1 text-xs font-medium transition-all duration-150
-                      ${
-                        filterJenjang === j
-                          ? "bg-brand-blue text-white shadow-sm"
-                          : "bg-white text-gray-500 hover:bg-brand-blue/10 hover:text-brand-blue"
+                      ${filterJenjang === j
+                        ? "bg-brand-blue text-white shadow-sm"
+                        : "bg-white text-gray-500 hover:bg-brand-blue/10 hover:text-brand-blue"
                       }`}
                   >
                     {j}
@@ -186,17 +185,16 @@ const ChatInput = ({ onSubmit, isLoading }: ChatInputProps) => {
       )}
 
       {/* ── Input Row ──────────────────────────────────────────────────── */}
-      <div className="flex items-end gap-2">
+      <div className="flex items-center gap-2.5">
         {/* Filter Toggle */}
         <button
           type="button"
           onClick={() => setShowFilters(!showFilters)}
           className={`flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl
             transition-all duration-200
-            ${
-              showFilters || hasActiveFilters
-                ? "bg-brand-blue/10 text-brand-blue"
-                : "text-gray-400 hover:bg-gray-100 hover:text-gray-600"
+            ${showFilters || hasActiveFilters
+              ? "bg-brand-blue/10 text-brand-blue"
+              : "text-gray-400 hover:bg-gray-100 hover:text-gray-600"
             }`}
           aria-label={showFilters ? "Sembunyikan filter" : "Tampilkan filter"}
         >
@@ -220,7 +218,7 @@ const ChatInput = ({ onSubmit, isLoading }: ChatInputProps) => {
             disabled={isLoading}
             rows={1}
             className="w-full resize-none rounded-xl border border-gray-200 bg-neutral-creamLight/40
-              px-4 py-2.5 text-sm text-gray-700 placeholder:text-gray-400
+              px-4 py-3 text-sm text-gray-700 placeholder:text-gray-400
               outline-none transition-all duration-200
               focus:border-brand-blue/40 focus:bg-white focus:shadow-sm
               focus:ring-2 focus:ring-brand-blue/10
@@ -255,7 +253,7 @@ const ChatInput = ({ onSubmit, isLoading }: ChatInputProps) => {
 
       {/* ── Active filter summary ─────────────────────────────────────── */}
       {hasActiveFilters && !showFilters && (
-        <div className="mt-2 flex items-center gap-1.5 text-xs text-gray-400">
+        <div className="mt-2.5 flex items-center gap-1.5 text-xs text-gray-400">
           <SlidersHorizontal className="h-3 w-3" />
           <span>
             Filter aktif:

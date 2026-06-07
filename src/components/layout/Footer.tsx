@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 "use client";
 
 // src/components/layout/Footer.tsx
@@ -122,66 +121,10 @@ export function Footer() {
               <li className="flex items-center gap-3">
                 <Globe className="w-5 h-5 text-brand-orange" />
                 <span>www.tambaksogra.org</span>
-=======
-import Image from "next/image";
-import Link from "next/link";
-import { MapPin, Phone, Mail, Globe } from "lucide-react";
-
-const footerLinks = [
-  { label: "Beranda", href: "/" },
-  { label: "Blog", href: "/blog" },
-  { label: "Program", href: "/programs" },
-  { label: "Tentang", href: "/about" },
-  { label: "Coba Booki", href: "/booki", isSpecial: true },
-  { label: "Donasi", href: "/donation" },
-];
-
-export function Footer() {
-  return (
-    <footer className="bg-emerald-950 text-emerald-200/80 pt-20 pb-10 border-t border-emerald-900">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-8 mb-16">
-          {/* Column 1: Institutional Branding */}
-          <div className="flex flex-col gap-6">
-            <Link href="/" className="inline-block">
-              <Image
-                src="/logo.png"
-                alt="Rumah Literasi Desa Tambaksogra Logo"
-                width={160}
-                height={48}
-                className="h-10 w-auto object-contain brightness-0 invert opacity-90"
-              />
-            </Link>
-            <p className="text-sm leading-relaxed text-emerald-100/70 max-w-sm">
-              Membangun budaya literasi dan menyediakan akses pengetahuan bagi masyarakat Desa Tambaksogra. Bersama kita wujudkan generasi cerdas dan berkarakter melalui membaca.
-            </p>
-          </div>
-
-          {/* Column 2: Hubungi Kami */}
-          <div className="flex flex-col gap-6">
-            <h3 className="text-lg font-semibold text-emerald-50">Hubungi Kami</h3>
-            <ul className="flex flex-col gap-4">
-              <li className="flex items-start gap-3 text-sm transition-colors hover:text-amber-400">
-                <MapPin className="w-5 h-5 shrink-0 mt-0.5" />
-                <span>Jl. Raya Tambaksogra, Kecamatan Sumbang, Kabupaten Banyumas, Jawa Tengah 53183</span>
-              </li>
-              <li className="flex items-center gap-3 text-sm transition-colors hover:text-amber-400">
-                <Phone className="w-5 h-5 shrink-0" />
-                <a href="tel:+6281234567890">+62 812-3456-7890</a>
-              </li>
-              <li className="flex items-center gap-3 text-sm transition-colors hover:text-amber-400">
-                <Mail className="w-5 h-5 shrink-0" />
-                <a href="mailto:info@rumahliterasitambaksogra.org">info@rumahliterasitambaksogra.org</a>
-              </li>
-              <li className="flex items-center gap-3 text-sm transition-colors hover:text-amber-400">
-                <Globe className="w-5 h-5 shrink-0" />
-                <a href="https://rumahliterasitambaksogra.org" target="_blank" rel="noopener noreferrer">rumahliterasitambaksogra.org</a>
->>>>>>> bb032ecad45fe6ebea2effbd747e7b735ad502dd
               </li>
             </ul>
           </div>
 
-<<<<<<< HEAD
           {/* ── Column 3: Tentang Kami Navigation ── */}
           <div>
             <h4 className="text-gray-900 font-bold text-xl mb-6">
@@ -213,55 +156,9 @@ export function Footer() {
             <Link href="#" className="hover:text-brand-blue transition-colors">
               Syarat &amp; Ketentuan
             </Link>
-=======
-          {/* Column 3: Tentang Kami & Profil */}
-          <div className="flex flex-col gap-6">
-            <h3 className="text-lg font-semibold text-emerald-50">Navigasi Utama</h3>
-            <div className="grid grid-cols-2 gap-x-4 gap-y-3">
-              {footerLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`text-sm transition-colors hover:text-amber-400 ${
-                    link.isSpecial ? "text-brand-blue font-medium hover:text-brand-blue/80" : ""
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-
-            <div className="mt-4 pt-4 border-t border-emerald-900/50">
-              <h4 className="text-sm font-medium text-emerald-50 mb-3">Profil Lembaga</h4>
-              <ul className="flex flex-col gap-2 text-sm">
-                <li>
-                  <Link href="/about" className="transition-colors hover:text-amber-400">Sejarah & Visi Misi</Link>
-                </li>
-                <li>
-                  <Link href="/about" className="transition-colors hover:text-amber-400">Struktur Organisasi</Link>
-                </li>
-                <li>
-                  <Link href="/programs" className="transition-colors hover:text-amber-400">Laporan Kegiatan</Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom Row */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-emerald-900 text-sm text-emerald-200/50">
-          <p>&copy; 2026 Rumah Literasi Desa Tambaksogra. Hak Cipta Dilindungi.</p>
-          <div className="flex gap-6">
-            <Link href="/privacy" className="hover:text-amber-400 transition-colors">Kebijakan Privasi</Link>
-            <Link href="/terms" className="hover:text-amber-400 transition-colors">Syarat & Ketentuan</Link>
->>>>>>> bb032ecad45fe6ebea2effbd747e7b735ad502dd
           </div>
         </div>
       </div>
     </footer>
   );
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> bb032ecad45fe6ebea2effbd747e7b735ad502dd

@@ -12,7 +12,7 @@
 /* ③ Local font and base variable declarations */
 @layer base {
   :root {
-    --font-sans: var(--font-lora);
+    --font-sans: var(--font-plus-jakarta);
   }
 
   html {
@@ -20,9 +20,11 @@
   }
 
   body {
-    font-family: var(--font-lora), serif;
+    font-family: var(--font-plus-jakarta), 'ui-sans-serif', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'cv01', 'cv02', 'cv03', 'cv04';
+    letter-spacing: -0.011em;
   }
 }
 

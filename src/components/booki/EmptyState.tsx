@@ -1,6 +1,7 @@
 "use client";
 
-import { BookOpen, Sparkles, MessageCircle } from "lucide-react";
+import Image from "next/image";
+import { Sparkles, MessageCircle } from "lucide-react";
 
 // ── Props ────────────────────────────────────────────────────────────────────
 interface EmptyStateProps {
@@ -21,16 +22,16 @@ const SUGGESTIONS: string[] = [
  */
 const EmptyState = ({ onSuggestionClick }: EmptyStateProps) => {
   return (
-    <div className="flex flex-1 items-center justify-center px-4 py-12">
+    <div className="flex flex-1 items-center justify-center px-4 py-16">
       <div className="flex max-w-lg flex-col items-center text-center">
         {/* ── Mascot Icon ──────────────────────────────────────────────── */}
-        <div className="relative mb-6">
+        <div className="relative mb-8">
           <div
             className="flex h-20 w-20 items-center justify-center rounded-2xl
               bg-gradient-to-br from-brand-blue to-brand-pink
               shadow-lg shadow-brand-blue/20 animate-float"
           >
-            <BookOpen className="h-10 w-10 text-white" strokeWidth={1.8} />
+            <Image src="/images/booki_icon.webp" alt="Booki Icon" width={60} height={60} className="h-16 w-16 object-contain" unoptimized />
           </div>
           <div
             className="absolute -right-1 -top-1 flex h-7 w-7 items-center justify-center
@@ -42,20 +43,20 @@ const EmptyState = ({ onSuggestionClick }: EmptyStateProps) => {
 
         {/* ── Greeting ─────────────────────────────────────────────────── */}
         <h2 className="mb-2 text-2xl font-bold text-gray-800 sm:text-3xl">
-          Halo! Aku Booki 📚
+          Halo! Aku Booki
         </h2>
-        <p className="mb-8 max-w-md text-sm leading-relaxed text-gray-500 sm:text-base">
+        <p className="mb-10 max-w-md text-sm leading-relaxed text-gray-500 sm:text-base">
           Ceritakan buku seperti apa yang kamu cari, dan aku akan merekomendasikan
           yang terbaik untukmu dari koleksi Rumah Literasi!
         </p>
 
         {/* ── Suggestion Chips ─────────────────────────────────────────── */}
-        <div className="flex flex-col gap-3 w-full sm:max-w-md">
+        <div className="flex flex-col gap-4 w-full sm:max-w-md">
           <p className="flex items-center justify-center gap-1.5 text-xs font-medium uppercase tracking-wider text-gray-400">
             <MessageCircle className="h-3.5 w-3.5" />
             Coba tanyakan
           </p>
-          <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+          <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
             {SUGGESTIONS.map((suggestion) => (
               <button
                 key={suggestion}

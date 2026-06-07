@@ -1,10 +1,8 @@
 "use client";
 
 // src/components/home/HeroSection.tsx
-// Djarum Foundation–inspired hero: warm cream left zone that gradient-blends
-// into a full-bleed auto-rotating image slideshow on the right.
-// Full viewport width, no container padding constraining backgrounds.
-// Left contains: highlight heading, subhighlight text, stat shapes only.
+// Perbaikan Layout Multi-Zoom Responsif (80% - 100%+)
+// Menggunakan Grid Alur Alami agar gambar kanan mengikuti melarnya teks kiri.
 
 import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
@@ -89,100 +87,108 @@ export const HeroSection = () => {
     <section
       ref={sectionRef}
       id="hero-section"
-      className="relative w-full min-h-screen overflow-hidden"
+      className="relative w-full h-auto overflow-visible bg-[#f2f2f2]"
     >
       {/* ══════════════════════════════════════════════════════════════
           DESKTOP / TABLET LAYOUT (≥ md)
-          Two-zone: left cream text area → gradient blend → right image
+          Menggunakan CSS Grid 12 Kolom Nyata untuk Mengunci Proporsi Tinggi
           ══════════════════════════════════════════════════════════════ */}
+      <div className="hidden md:grid grid-cols-12 w-full min-h-[calc(100vh-0px)] relative overflow-hidden">
 
-      {/* ── Left Background Zone ── */}
-      <div
-        className="absolute inset-0 hidden md:block"
-        aria-hidden="true"
-        style={{
-          background:
-            "linear-gradient(135deg, #F8F1E9 0%, #F0E3D3 100%)",
-        }}
-      />
-
-      {/* ── Right Image Zone (full-bleed, all slideshow images stacked) ── */}
-      <div
-        data-hero-image-zone=""
-        className="absolute top-0 right-0 bottom-0 hidden md:block"
-        style={{
-          width: "58%",
-          WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 50%)",
-          maskImage: "linear-gradient(to right, transparent 0%, black 50%)",
-        }}
-      >
-        {SLIDESHOW_IMAGES.map((img, i) => (
-          <div
-            key={img.src}
-            className="absolute inset-0 transition-opacity duration-[1000ms] ease-in-out"
-            style={{ opacity: activeIndex === i ? 1 : 0 }}
-          >
-            <Image
-              src={img.src}
-              alt={img.alt}
-              fill
-              className="object-cover"
-              sizes="58vw"
-              priority={i === 0}
-            />
-          </div>
-        ))}
-      </div>
-
-      {/* The Djarum Foundation–style transition is now handled seamlessly 
-          via CSS mask-image on the right image zone container above, 
-          which avoids any color mismatches between background and overlay. */}
-
-      {/* ── Left Content Container (desktop/tablet) ── */}
-      <div className="relative z-20 hidden md:flex items-center min-h-screen">
+        {/* Background — flat neutral */}
         <div
-          className="w-full pl-6 sm:pl-12 lg:pl-20 xl:pl-28 2xl:pl-36 pr-8"
-          style={{ maxWidth: "52%" }}
-        >
-          {/* Heading */}
-          <h1
-            data-hero-heading=""
-            className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.1] mb-5"
-          >
-            <span className="text-gray-900">Literasi Hari Ini,</span>
-            <br />
-            <span className="text-brand-blue">Inovasi Masa Depan</span>
-          </h1>
+          className="absolute inset-0 z-0"
+          aria-hidden="true"
+          style={{ background: "#f2f2f2" }}
+        />
 
-          {/* Subhighlight */}
-          <p
-            data-hero-sub=""
-            className="text-base lg:text-lg text-gray-500 leading-relaxed max-w-lg mb-8"
-          >
-            Membangun ekosistem literasi berbasis teknologi untuk mendukung
-            pembelajaran siswa di era digital
-          </p>
+        {/* Blue ambient glow — bottom-left corner, behind text */}
+        <div
+          className="absolute pointer-events-none z-[5]"
+          aria-hidden="true"
+          style={{
+            bottom: "-60px",
+            left: "-80px",
+            width: "560px",
+            height: "560px",
+            borderRadius: "50%",
+            background:
+              "radial-gradient(ellipse at bottom left, rgba(10,150,230,0.13) 0%, rgba(10,150,230,0.05) 30%, transparent 60%)",
+            filter: "blur(32px)",
+          }}
+        />
 
-          {/* Stat Shapes — horizontal row */}
-          <div className="flex flex-wrap gap-3 lg:gap-4">
-            {HERO_STATS.map((stat) => (
-              <div
-                key={stat.label}
-                data-hero-stat=""
-                className="flex flex-col items-center justify-center px-4 py-3 lg:px-5 lg:py-4 rounded-xl bg-white/70 backdrop-blur-sm border border-gray-100 shadow-sm min-w-[90px] lg:min-w-[100px] hover:shadow-md transition-shadow duration-300"
-              >
-                <span
-                  className="text-xl lg:text-2xl font-bold"
-                  style={{ color: stat.accent }}
+        {/* ── SISI KIRI: Kontainer Teks Konten ── */}
+        <div className="col-span-5 lg:col-span-5 xl:col-span-5 z-20 flex items-center pt-20 sm:pt-24 lg:pt-28 xl:pt-32 pb-16 lg:pb-24 xl:pb-28 pl-6 sm:pl-12 lg:pl-16 xl:pl-24 2xl:pl-32 pr-4 h-full">
+          <div className="w-full">
+            {/* Heading */}
+            <h1
+              data-hero-heading=""
+              className="text-3xl sm:text-4xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold leading-[1.1] mb-4 lg:mb-5"
+            >
+              <span className="text-gray-900">Literasi Hari Ini,</span>
+              <br />
+              <span className="text-brand-blue">Inovasi Masa Depan</span>
+            </h1>
+
+            {/* Subhighlight */}
+            <p
+              data-hero-sub=""
+              className="text-sm lg:text-base text-gray-500 leading-relaxed max-w-md mb-6 lg:mb-8"
+            >
+              Membangun ekosistem literasi berbasis teknologi untuk mendukung
+              pembelajaran siswa di era digital
+            </p>
+
+            {/* Stat Shapes — horizontal row wrapper */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4 xl:gap-5">
+              {HERO_STATS.map((stat) => (
+                <div
+                  key={stat.label}
+                  data-hero-stat=""
+                  className="flex flex-col items-center justify-center px-3.5 py-3 lg:px-5 lg:py-4 rounded-xl bg-white/70 backdrop-blur-sm border border-gray-100 shadow-sm min-w-[88px] lg:min-w-[100px] xl:min-w-[112px] hover:shadow-md transition-shadow duration-300"
                 >
-                  {stat.value}
-                </span>
-                <span className="text-[11px] lg:text-xs text-gray-500 font-medium mt-0.5 text-center">
-                  {stat.label}
-                </span>
-              </div>
-            ))}
+                  <span
+                    className="text-lg lg:text-xl xl:text-2xl font-bold"
+                    style={{ color: stat.accent }}
+                  >
+                    {stat.value}
+                  </span>
+                  <span className="text-[10px] lg:text-[11px] xl:text-xs text-gray-500 font-medium mt-0.5 text-center">
+                    {stat.label}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
+        </div>
+
+        {/* ── SISI KANAN: Kontainer Gambar Slideshow ── */}
+        {/* col-span-7 bertindak sebagai tiang penyangga tinggi seksi secara alami */}
+        <div
+          data-hero-image-zone=""
+          className="col-span-7 lg:col-span-7 xl:col-span-7 relative min-h-screen h-full z-10"
+          style={{
+            WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 15%)",
+            maskImage: "linear-gradient(to right, transparent 0%, black 15%)",
+          }}
+        >
+          {SLIDESHOW_IMAGES.map((img, i) => (
+            <div
+              key={img.src}
+              className="absolute inset-0 transition-opacity duration-[1000ms] ease-in-out"
+              style={{ opacity: activeIndex === i ? 1 : 0 }}
+            >
+              <Image
+                src={img.src}
+                alt={img.alt}
+                fill
+                className="object-cover"
+                sizes="58vw"
+                priority={i === 0}
+              />
+            </div>
+          ))}
         </div>
       </div>
 
@@ -191,8 +197,8 @@ export const HeroSection = () => {
           Stacked: image on top, text content below on cream background
           ══════════════════════════════════════════════════════════════ */}
       <div className="md:hidden">
-        {/* Mobile Image — stacked on top, full-width */}
-        <div className="relative w-full h-[50vh] min-h-[280px]">
+        {/* Mobile Image — stacked on top, full-width, offset by navbar h-16=64px */}
+        <div className="relative w-full h-[48vh] min-h-[280px] pt-16">
           {SLIDESHOW_IMAGES.map((img, i) => (
             <div
               key={img.src}
@@ -209,26 +215,41 @@ export const HeroSection = () => {
               />
             </div>
           ))}
-          {/* Bottom fade into cream */}
+          {/* Bottom fade into page bg */}
           <div
-            className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none"
+            className="absolute bottom-0 left-0 right-0 h-20 pointer-events-none"
             style={{
               background:
-                "linear-gradient(to top, #F8F1E9 0%, rgba(248,241,233,0) 100%)",
+                "linear-gradient(to top, #f2f2f2 0%, rgba(242,242,242,0) 100%)",
             }}
           />
         </div>
 
         {/* Mobile Text Content */}
         <div
-          className="px-5 pt-6 pb-12"
-          style={{
-            background: "linear-gradient(to bottom, #F8F1E9 0%, #F0E3D3 100%)",
-          }}
+          className="px-5 pt-8 pb-16 relative overflow-hidden"
+          style={{ background: "#f2f2f2" }}
         >
+          {/* Blue ambient glow — bottom-left, behind content */}
+          <div
+            className="absolute pointer-events-none"
+            aria-hidden="true"
+            style={{
+              bottom: "-80px",
+              left: "-80px",
+              width: "400px",
+              height: "400px",
+              borderRadius: "50%",
+              background:
+                "radial-gradient(ellipse at bottom left, rgba(10,150,230,0.11) 0%, rgba(10,150,230,0.04) 45%, transparent 70%)",
+              filter: "blur(28px)",
+              zIndex: 0,
+            }}
+          />
+
           <h1
             data-hero-heading=""
-            className="text-3xl sm:text-4xl font-bold leading-[1.15] mb-4"
+            className="relative z-10 text-3xl sm:text-4xl font-bold leading-[1.15] mb-5"
           >
             <span className="text-gray-900">Literasi Hari Ini,</span>
             <br />
@@ -237,19 +258,19 @@ export const HeroSection = () => {
 
           <p
             data-hero-sub=""
-            className="text-base text-gray-500 leading-relaxed mb-6 max-w-md"
+            className="relative z-10 text-base text-gray-500 leading-relaxed mb-8 max-w-md"
           >
             Membangun ekosistem literasi berbasis teknologi untuk mendukung
             pembelajaran siswa di era digital
           </p>
 
           {/* Stat Shapes — 2×2 grid on mobile */}
-          <div className="grid grid-cols-2 gap-3">
+          <div className="relative z-10 grid grid-cols-2 gap-3.5">
             {HERO_STATS.map((stat) => (
               <div
                 key={stat.label}
                 data-hero-stat=""
-                className="flex flex-col items-center justify-center px-3 py-3 rounded-xl bg-white/80 border border-gray-100 shadow-sm"
+                className="flex flex-col items-center justify-center px-4 py-4 rounded-xl bg-white/80 border border-gray-100 shadow-sm"
               >
                 <span
                   className="text-xl font-bold"

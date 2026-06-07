@@ -11,17 +11,17 @@ import BookDetailPanel from "@/components/booki/BookDetailPanel";
  *
  * Manages the Golden Ratio (φ ≈ 1.618) split-screen layout:
  *
- *   ┌────────────────────────────┬──────────────────┐
- *   │    Chat Panel (61.8%)      │  Detail (38.2%)  │
- *   │                            │                  │
- *   │  Messages + Input          │  Book Details    │
- *   │                            │                  │
- *   └────────────────────────────┴──────────────────┘
+ * ┌────────────────────────────┬──────────────────┐
+ * │    Chat Panel (61.8%)      │  Detail (38.2%)  │
+ * │                            │                  │
+ * │    Messages + Input        │  Book Details    │
+ * │                            │                  │
+ * └────────────────────────────┴──────────────────┘
  *
  * States:
- *   - Initial: Chat panel fills 100% width.
- *   - Book selected: Smooth transition to 61.8% / 38.2% split.
- *   - Mobile (< lg): Detail panel is a full-screen overlay.
+ * - Initial: Chat panel fills 100% width.
+ * - Book selected: Smooth transition to 61.8% / 38.2% split.
+ * - Mobile (< lg): Detail panel is a full-screen overlay.
  */
 const BookiWorkspace = () => {
   const { messages, isLoading, error, sendMessage, clearMessages: _clearMessages } =
@@ -42,7 +42,7 @@ const BookiWorkspace = () => {
 
   return (
     <div
-      className="flex h-[calc(100vh-64px)] w-full overflow-hidden bg-neutral-creamLight/20"
+      className="flex h-screen w-full pt-16 sm:pt-20 overflow-hidden bg-neutral-creamLight/20"
       id="booki-workspace"
     >
       {/* ── Left Panel: Chat ────────────────────────────────────────────── */}
@@ -76,7 +76,7 @@ const BookiWorkspace = () => {
 
       {/* ── Right Panel: Book Detail (Mobile — overlay) ────────────────── */}
       {isPanelOpen && (
-        <div className="lg:hidden">
+        <div className="lg:hidden absolute inset-0 z-50 pt-16 sm:pt-20 bg-[#0d0d1a]">
           <BookDetailPanel book={selectedBook} onClose={handleCloseDetail} />
         </div>
       )}

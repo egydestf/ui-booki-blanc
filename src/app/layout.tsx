@@ -1,12 +1,14 @@
 import type { Metadata } from 'next';
-import { Lora } from 'next/font/google';
 import { ColorSchemeScript } from '@mantine/core';
 import { MantineThemeProvider } from '@/components/providers/MantineThemeProvider';
+import { Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
 
-const lora = Lora({
+const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
-  variable: '--font-lora',
+  variable: '--font-plus-jakarta',
+  weight: ['300', '400', '500', '600', '700', '800'],
+  style: ['normal', 'italic'],
   display: 'swap',
 });
 
@@ -21,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="id" className={`${lora.variable} scroll-smooth`} suppressHydrationWarning={true}>
+    <html lang="id" className={`${plusJakartaSans.variable} scroll-smooth`} suppressHydrationWarning={true}>
       <head>
         <ColorSchemeScript />
       </head>

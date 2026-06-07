@@ -27,14 +27,12 @@ const MessageBubble = ({ message, onSelectBook }: MessageBubbleProps) => {
 
   return (
     <div
-      className={`flex w-full animate-message-appear ${
-        isUser ? "justify-end" : "justify-start"
-      }`}
+      className={`flex w-full animate-message-appear ${isUser ? "justify-end" : "justify-start"
+        }`}
     >
       <div
-        className={`flex max-w-[85%] gap-3 sm:max-w-[75%] lg:max-w-[70%] ${
-          isUser ? "flex-row-reverse" : "flex-row"
-        }`}
+        className={`flex max-w-[85%] gap-3 sm:max-w-[75%] lg:max-w-[70%] ${isUser ? "flex-row-reverse" : "flex-row"
+          }`}
       >
         {/* ── Avatar ──────────────────────────────────────────────────── */}
         {!isUser && (
@@ -51,11 +49,10 @@ const MessageBubble = ({ message, onSelectBook }: MessageBubbleProps) => {
         <div className="flex flex-col gap-3">
           {/* ── Text Bubble ───────────────────────────────────────────── */}
           <div
-            className={`rounded-2xl px-4 py-3 ${
-              isUser
+            className={`rounded-2xl px-4 py-3 ${isUser
                 ? "bg-brand-blue text-white rounded-br-md"
                 : "bg-white border border-gray-100 text-gray-700 rounded-bl-md shadow-sm"
-            }`}
+              }`}
           >
             <p className="whitespace-pre-line text-sm leading-relaxed sm:text-base">
               {message.content}

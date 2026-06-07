@@ -25,7 +25,12 @@ const brandYellow: MantineColorsTuple = [
 ];
 
 export const theme = createTheme({
-  fontFamily: 'var(--font-lora), serif',
+  fontFamily: "var(--font-plus-jakarta), 'ui-sans-serif', system-ui, sans-serif",
+  fontFamilyMonospace: "ui-monospace, 'Cascadia Code', monospace",
+  headings: {
+    fontFamily: "var(--font-plus-jakarta), 'ui-sans-serif', system-ui, sans-serif",
+    fontWeight: '700',
+  },
   primaryColor: 'brandBlue',
   colors: {
     brandBlue,

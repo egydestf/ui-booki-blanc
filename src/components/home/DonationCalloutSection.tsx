@@ -147,7 +147,7 @@ export const DonationCalloutSection = () => {
       ref={sectionRef}
       id="donation-section"
       aria-label="Donasi dan Relawan Rumah Literasi Tambaksogra"
-      className="relative w-full overflow-hidden aspect-auto lg:aspect-[3/1] border-t border-b border-black/10"
+      className="relative w-full overflow-hidden h-auto py-20 lg:py-32 border-t border-b border-black/10"
       style={{
         // Mirrors Section 3: dark background colour that shows behind the image
         backgroundColor: "#121008",
@@ -191,27 +191,27 @@ export const DonationCalloutSection = () => {
       />
 
       {/* ── Content — restricted to max-w-5xl (20% narrower than standard max-w-7xl) ── */}
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-0 flex flex-col justify-center h-full">
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center h-full">
 
         {/* ── Section Header ── */}
-        <div className="text-center mb-6 lg:mb-8">
+        <div className="text-center mb-8 lg:mb-12">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-tight mb-2">
             Langkah Kecil,{" "}
             <span style={{ color: "#7AF51C" }}>Dampak Besar</span>
           </h2>
-          <p className="text-xs sm:text-sm text-white/60 leading-relaxed max-w-xl mx-auto">
+          <p className="text-xs sm:text-sm text-white/75 leading-relaxed max-w-xl mx-auto">
             Setiap kontribusi sekecil apapun membuka jendela pengetahuan bagi
             anak-anak desa yang bermimpi lebih tinggi.
           </p>
         </div>
 
         {/* ── Dual Column Grid (Left & Right) ── */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-5 mb-4 lg:mb-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6 mb-5 lg:mb-6">
 
           {/* ─── Column A: Menjadi Donatur ───────────────────────────── */}
           <div
             ref={donateColRef}
-            className="rounded-2xl p-5 lg:p-6 flex flex-col gap-3"
+            className="rounded-2xl p-6 lg:p-7 flex flex-col gap-4"
             style={GLASS_PANEL}
           >
             {/* Header row */}
@@ -253,7 +253,7 @@ export const DonationCalloutSection = () => {
           {/* ─── Column B: Menjadi Relawan ───────────────────────────── */}
           <div
             ref={volunteerColRef}
-            className="rounded-2xl p-5 lg:p-6 flex flex-col gap-3"
+            className="rounded-2xl p-6 lg:p-7 flex flex-col gap-4"
             style={GLASS_PANEL}
           >
             {/* Header row */}
@@ -296,10 +296,10 @@ export const DonationCalloutSection = () => {
         {/* ── Full-Width Manager Contact Card below ── */}
         <div
           ref={contactCardRef}
-          className="rounded-2xl p-5 lg:p-6"
+          className="rounded-2xl p-6 lg:p-7"
           style={GLASS_PANEL}
         >
-          <div className="flex flex-col lg:flex-row items-start lg:items-center gap-4 lg:gap-8">
+          <div className="flex flex-col lg:flex-row items-start lg:items-center gap-5 lg:gap-10">
 
             {/* Identity */}
             <div className="flex items-center gap-4 shrink-0">

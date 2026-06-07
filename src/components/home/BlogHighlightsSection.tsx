@@ -92,10 +92,10 @@ export const BlogHighlightsSection = () => {
   );
 
   return (
-    <section ref={sectionRef} className="py-16 lg:py-24 bg-white">
+    <section ref={sectionRef} className="py-20 lg:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* ── Section Header ── */}
-        <div className="text-center mb-12 lg:mb-16">
+        <div className="text-center mb-14 lg:mb-20">
           <span
             data-blog-header=""
             className="text-brand-orange font-semibold text-sm uppercase tracking-wider"
@@ -118,7 +118,7 @@ export const BlogHighlightsSection = () => {
         </div>
 
         {/* ── Blog Cards Grid ── */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {MOCK_ARTICLES.map((article) => (
             <Link
               key={article.slug}
@@ -142,7 +142,7 @@ export const BlogHighlightsSection = () => {
               </div>
 
               {/* Article Content */}
-              <div className="p-5 space-y-3">
+              <div className="p-6 space-y-4">
                 <div className="flex items-center gap-2 text-xs text-gray-400">
                   <Calendar size={12} />
                   <time>{article.date}</time>
@@ -166,7 +166,7 @@ export const BlogHighlightsSection = () => {
         </div>
 
         {/* ── CTA ── */}
-        <div className="text-center mt-12">
+        <div className="text-center mt-14 lg:mt-16">
           <Button
             component={Link}
             href="/blog"
