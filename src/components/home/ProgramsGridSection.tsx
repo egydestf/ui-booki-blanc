@@ -387,12 +387,12 @@ export const ProgramsGridSection = () => {
       ref={sectionRef}
       id="programs-section"
       aria-label="Program Kami"
-      className="py-16 lg:py-24 bg-neutral-creamLight"
+      className="py-20 lg:py-32 bg-neutral-creamLight"
     >
       {/* ── Section Header ── */}
       <div
         ref={headerRef}
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-12 lg:mb-16"
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-14 lg:mb-20"
       >
         <h2
           data-h-el=""
@@ -445,8 +445,8 @@ export const ProgramsGridSection = () => {
             scrollbarWidth: "none",
             msOverflowStyle: "none" as React.CSSProperties["msOverflowStyle"],
             // Vertical padding absorbs card scale(1.06) so it never clips
-            paddingTop: "40px",
-            paddingBottom: "44px",
+            paddingTop: "56px",
+            paddingBottom: "72px",
             scrollSnapType: "x mandatory",
           }}
         >
@@ -486,7 +486,7 @@ export const ProgramsGridSection = () => {
       </div>
 
       {/* ── Dot navigation ── */}
-      <div className="flex justify-center gap-2 mt-6">
+      <div className="flex justify-center gap-2 mt-8">
         {PROGRAMS.map((p, i) => (
           <button
             key={p.id}

@@ -102,10 +102,10 @@ export const DocumentationGallerySection = () => {
   );
 
   return (
-    <section ref={sectionRef} id="documentation-section" className="py-16 lg:py-24 bg-white">
+    <section ref={sectionRef} id="documentation-section" className="py-20 lg:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* ── Section Header — style matches Section 4 ── */}
-        <div className="text-center mb-10 lg:mb-14">
+        <div className="text-center mb-12 lg:mb-16">
           <h2
             data-gallery-header=""
             className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight mb-4"
@@ -123,22 +123,22 @@ export const DocumentationGallerySection = () => {
 
         {/* ── Mosaic Gallery Grid ── */}
         {/* Row 1: Large (2-col) + Small */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-3 sm:mb-4">
-          <GalleryCard item={GALLERY_ITEMS[0]} className="sm:col-span-2 h-56 sm:h-72 lg:h-80" />
-          <GalleryCard item={GALLERY_ITEMS[1]} className="h-56 sm:h-72 lg:h-80" />
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5 mb-4 sm:mb-5">
+          <GalleryCard item={GALLERY_ITEMS[0]} className="sm:col-span-2 h-60 sm:h-76 lg:h-84" />
+          <GalleryCard item={GALLERY_ITEMS[1]} className="h-60 sm:h-76 lg:h-84" />
         </div>
 
         {/* Row 2: Small + Large (2-col) */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-3 sm:mb-4">
-          <GalleryCard item={GALLERY_ITEMS[2]} className="h-56 sm:h-64 lg:h-72" />
-          <GalleryCard item={GALLERY_ITEMS[3]} className="sm:col-span-2 h-56 sm:h-64 lg:h-72" />
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5 mb-4 sm:mb-5">
+          <GalleryCard item={GALLERY_ITEMS[2]} className="h-60 sm:h-68 lg:h-76" />
+          <GalleryCard item={GALLERY_ITEMS[3]} className="sm:col-span-2 h-60 sm:h-68 lg:h-76" />
         </div>
 
         {/* Row 3: Three equal items */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
-          <GalleryCard item={GALLERY_ITEMS[4]} className="h-48 sm:h-56 lg:h-64" />
-          <GalleryCard item={GALLERY_ITEMS[5]} className="h-48 sm:h-56 lg:h-64" />
-          <GalleryCard item={GALLERY_ITEMS[6]} className="h-48 sm:h-56 lg:h-64" />
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
+          <GalleryCard item={GALLERY_ITEMS[4]} className="h-52 sm:h-60 lg:h-68" />
+          <GalleryCard item={GALLERY_ITEMS[5]} className="h-52 sm:h-60 lg:h-68" />
+          <GalleryCard item={GALLERY_ITEMS[6]} className="h-52 sm:h-60 lg:h-68" />
         </div>
       </div>
     </section>

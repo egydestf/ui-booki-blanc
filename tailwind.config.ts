@@ -9,8 +9,8 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-lora)', 'serif'],
-        serif: ['var(--font-lora)', 'Georgia', 'serif'],
+        sans: ['var(--font-plus-jakarta)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        serif: ['var(--font-plus-jakarta)', 'ui-sans-serif', 'sans-serif'],
       },
       colors: {
         // Educational/Literacy Theme Colors for Rumah Literasi Tambaksogra

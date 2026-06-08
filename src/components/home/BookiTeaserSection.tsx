@@ -23,9 +23,9 @@ import {
 gsap.registerPlugin(ScrollTrigger);
 
 // ── Design tokens ─────────────────────────────────────────────────────
-const GLASS_BG = "rgba(15,8,35,0.22)";
-const GLASS_BORDER = "rgba(255,255,255,0.15)";
-const GLASS_BLUR = "blur(28px)";
+const GLASS_BG = "rgba(255,255,255,0.25)";
+const GLASS_BORDER = "rgba(0,0,0,0.10)";
+const GLASS_BLUR = "blur(32px)";
 const ACCENT_PINK = "#E9559B";
 const ACCENT_BLUE = "#0A96E6";
 const ACCENT_CTA = "#21AEFF"; // CTA button color (Jelajahi Booki)
@@ -238,7 +238,7 @@ interface BookCardProps {
 
 const BookCard = ({ book, onActionClick, visible, index }: BookCardProps) => (
   <div
-    className="rounded-2xl overflow-hidden border border-white/10 group hover:border-white/25 transition-all duration-500 flex flex-col shrink-0"
+    className="rounded-2xl overflow-hidden border border-black/10 group hover:border-black/20 transition-all duration-500 flex flex-col shrink-0"
     style={{
       width: `${CARD_WIDTH}px`,
       minHeight: "100%",
@@ -255,7 +255,7 @@ const BookCard = ({ book, onActionClick, visible, index }: BookCardProps) => (
       className="relative flex-1 overflow-hidden shrink-0"
       style={{
         minHeight: "130px",
-        background: "rgba(255,255,255,0.04)",
+        background: "rgba(0,0,0,0.04)",
       }}
     >
       <Image
@@ -285,9 +285,9 @@ const BookCard = ({ book, onActionClick, visible, index }: BookCardProps) => (
         <span
           className="px-1.5 py-0.5 rounded-full text-[9px] font-medium leading-tight"
           style={{
-            background: "rgba(255,255,255,0.07)",
-            color: "rgba(255,255,255,0.6)",
-            border: `1px solid ${GLASS_BORDER}`,
+            background: "rgba(0,0,0,0.05)",
+            color: "rgba(0,0,0,0.55)",
+            border: `1px solid rgba(0,0,0,0.12)`,
           }}
         >
           {book.mapel}
@@ -295,7 +295,7 @@ const BookCard = ({ book, onActionClick, visible, index }: BookCardProps) => (
       </div>
 
       {/* Title */}
-      <h4 className="text-xs font-bold text-white leading-snug line-clamp-3">
+      <h4 className="text-xs font-bold text-black leading-snug line-clamp-3">
         {book.judul}
       </h4>
 
@@ -321,20 +321,20 @@ const BookCard = ({ book, onActionClick, visible, index }: BookCardProps) => (
           onClick={onActionClick}
           className="flex-1 flex items-center justify-center rounded-md font-semibold transition-all duration-200"
           style={{
-            color: "rgba(255,255,255,0.65)",
-            background: "rgba(255,255,255,0.07)",
-            border: `1px solid ${GLASS_BORDER}`,
+            color: "rgba(0,0,0,0.60)",
+            background: "rgba(0,0,0,0.06)",
+            border: `1px solid rgba(0,0,0,0.12)`,
             height: "18px",
             fontSize: "7px",
             letterSpacing: "0.04em",
           }}
           onMouseEnter={(e) => {
             (e.currentTarget as HTMLButtonElement).style.background = "rgba(255,255,255,0.14)";
-            (e.currentTarget as HTMLButtonElement).style.color = "#fff";
+            (e.currentTarget as HTMLButtonElement).style.color = "#0780c7";
           }}
           onMouseLeave={(e) => {
-            (e.currentTarget as HTMLButtonElement).style.background = "rgba(255,255,255,0.07)";
-            (e.currentTarget as HTMLButtonElement).style.color = "rgba(255,255,255,0.65)";
+            (e.currentTarget as HTMLButtonElement).style.background = "rgba(0,0,0,0.06)";
+            (e.currentTarget as HTMLButtonElement).style.color = "rgba(0, 0, 0, 0.60)";
           }}
         >
           Katalog
@@ -657,13 +657,13 @@ export const BookiTeaserSection = () => {
 
 
         {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28 xl:py-36">
           {/*
             Golden-ratio two-column layout:
             Left  ≈ 38.2%  (the narrative / controls side)
             Right ≈ 61.8%  (the interactive demo panel)
           */}
-          <div className="flex flex-col lg:flex-row gap-10 xl:gap-14 lg:items-stretch">
+          <div className="flex flex-col lg:flex-row gap-12 xl:gap-16 lg:items-start">
 
             {/* ══════════════════════════════════════════
                 LEFT PANEL  (golden-ratio narrow side)
@@ -671,7 +671,7 @@ export const BookiTeaserSection = () => {
             ══════════════════════════════════════════ */}
             <div
               ref={leftPanelRef}
-              className="lg:w-[38%] xl:w-[37%] flex flex-col gap-6"
+              className="lg:w-[38%] xl:w-[37%] flex flex-col gap-7 lg:gap-8"
             >
 
               {/* ── Title block:
@@ -745,32 +745,32 @@ export const BookiTeaserSection = () => {
               {/* ── Description — glass card ── */}
               <div
                 ref={descCardRef}
-                className="rounded-2xl p-5 space-y-4"
+                className="rounded-2xl p-6 space-y-5"
                 style={{
                   background: GLASS_BG,
                   backdropFilter: GLASS_BLUR,
                   WebkitBackdropFilter: GLASS_BLUR,
                   border: `1px solid ${GLASS_BORDER}`,
-                  boxShadow: "0 4px 24px rgba(0,0,0,0.3)",
+                  boxShadow: "0 4px 20px rgba(0,0,0,0.10), 0 1px 4px rgba(0,0,0,0.06)",
                 }}
               >
-                <h3 className="text-xl sm:text-2xl font-bold text-white leading-snug">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 leading-snug">
                   Temukan buku yang{" "}
                   <span style={{ color: ACCENT_PINK }}>tepat untukmu</span>
                   {" "}dengan kecerdasan AI
                 </h3>
-                <p className="text-sm text-gray-300 leading-relaxed">
+                <p className="text-sm text-gray-600 leading-relaxed">
                   Booki adalah asisten AI berbasis{" "}
-                  <strong className="text-white">RAG (Retrieval-Augmented Generation)</strong>{" "}
+                  <strong className="text-gray-900">RAG (Retrieval-Augmented Generation)</strong>{" "}
                   yang membantu siswa, orang tua, dan guru menemukan buku belajar terbaik dari
                   koleksi Rumah Literasi Tambaksogra. Cukup tanya seperti bicara ke teman!
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {[
-                    { label: "Ribuan Buku", color: "#ffffff", bg: "rgba(255,255,255,0.12)", border: "rgba(255,255,255,0.25)" },
-                    { label: "SD – SMA", color: "#FBAD1A", bg: "#FBAD1A22", border: "#FBAD1A44" },
-                    { label: "Instan & Akurat", color: ACCENT_PINK, bg: `${ACCENT_PINK}22`, border: `${ACCENT_PINK}44` },
-                    { label: "Gratis", color: "#4ade80", bg: "#4ade8022", border: "#4ade8044" },
+                    { label: "Ribuan Buku", color: "#374151", bg: "rgba(0,0,0,0.06)", border: "rgba(0,0,0,0.12)" },
+                    { label: "SD – SMA", color: "#b45309", bg: "#FBAD1A1a", border: "#FBAD1A55" },
+                    { label: "Instan & Akurat", color: "#be185d", bg: `${ACCENT_PINK}18`, border: `${ACCENT_PINK}44` },
+                    { label: "Gratis", color: "#15803d", bg: "#22c55e1a", border: "#22c55e44" },
                   ].map(({ label, color, bg, border }) => (
                     <span
                       key={label}
@@ -784,10 +784,10 @@ export const BookiTeaserSection = () => {
               </div>
 
               {/* ── Query pills ── */}
-              <div ref={pillsRef} className="space-y-3">
+              <div ref={pillsRef} className="space-y-4">
                 <p
                   className="text-[11px] font-bold uppercase tracking-widest flex items-center gap-2"
-                  style={{ color: "rgba(255,255,255,0.5)" }}
+                  style={{ color: "rgba(0,0,0,0.45)" }}
                 >
                   <Sparkles size={11} style={{ color: ACCENT_PINK }} />
                   Coba tanya Booki sekarang
@@ -816,13 +816,13 @@ export const BookiTeaserSection = () => {
                           WebkitBackdropFilter: GLASS_BLUR,
                           boxShadow: pillActive
                             ? `0 4px 20px ${ACCENT_PINK}22`
-                            : "0 2px 6px rgba(0,0,0,0.18)",
+                            : "0 2px 6px rgba(0,0,0,0.07)",
                         }}
                       >
                         <span className="flex items-center gap-2.5 pr-8">
                           <span
                             className="text-sm font-semibold leading-snug"
-                            style={{ color: "#ffffff" }}
+                            style={{ color: "#111827" }}
                           >
                             {template.label}
                           </span>
@@ -858,7 +858,7 @@ export const BookiTeaserSection = () => {
                 <Link
                   href="/booki"
                   id="booki-teaser-explore-link"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 min-h-[44px] hover:brightness-110 hover:scale-[1.03] active:scale-[0.97]"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl text-sm font-bold transition-all duration-300 min-h-[48px] hover:brightness-110 hover:scale-[1.03] active:scale-[0.97]"
                   style={{
                     background: `linear-gradient(135deg, ${ACCENT_CTA} 0%, #0e8fd4 100%)`,
                     color: "#ffffff",
@@ -881,30 +881,30 @@ export const BookiTeaserSection = () => {
               className="lg:flex-1 w-full flex flex-col"
             >
               <div
-                className="rounded-3xl border flex flex-col flex-1"
+                className="rounded-3xl border flex flex-col flex-1 py-2"
                 style={{
                   background: GLASS_BG,
                   backdropFilter: GLASS_BLUR,
                   WebkitBackdropFilter: GLASS_BLUR,
                   border: `1px solid ${GLASS_BORDER}`,
                   boxShadow:
-                    "0 8px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.06)",
-                  minHeight: `${PANEL_MIN_HEIGHT}px`,
+                    "0 8px 40px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.5)",
+                  minHeight: `600px`,
                 }}
               >
                 {/* ── Chat Header ── */}
                 <div
-                  className="flex items-center justify-between px-5 py-3.5 shrink-0"
+                  className="rounded-xl flex items-center justify-between px-5 py-4 shrink-0"
                   style={{
                     borderBottom: `1px solid ${GLASS_BORDER}`,
-                    background: "rgba(255,255,255,0.025)",
+                    background: "rgba(255,255,255,0.30)",
                   }}
                 >
                   <div className="flex items-center gap-3">
                     <div
                       className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0"
                       style={{
-                        background: `linear-gradient(135deg, ${ACCENT_PINK}2e, ${ACCENT_PINK}18)`,
+                        background: `linear-gradient(135deg, ${ACCENT_PINK}55, ${ACCENT_PINK}33)`,
                         border: `1px solid ${ACCENT_PINK}44`,
                       }}
                     >
@@ -918,10 +918,10 @@ export const BookiTeaserSection = () => {
                       />
                     </div>
                     <div>
-                      <p className="text-sm font-bold text-white leading-tight">Booki</p>
+                      <p className="text-sm font-bold text-gray-900 leading-tight">Booki</p>
                       <p
                         className="text-[10px] leading-tight"
-                        style={{ color: "rgba(255,255,255,0.45)" }}
+                        style={{ color: "rgba(0,0,0,0.45)" }}
                       >
                         Asisten Rekomendasi Buku · AI
                       </p>
@@ -936,10 +936,10 @@ export const BookiTeaserSection = () => {
                     }}
                   >
                     <span
-                      className="w-1.5 h-1.5 rounded-full bg-green-400"
+                      className="w-1.5 h-1.5 rounded-full bg-green-600"
                       style={{ animation: "pulseSoft 2s ease-in-out infinite" }}
                     />
-                    <span className="text-[10px] font-semibold text-green-400">Online</span>
+                    <span className="text-[10px] font-semibold text-green-600">Online</span>
                   </div>
                 </div>
 
@@ -958,12 +958,12 @@ export const BookiTeaserSection = () => {
                   >
                     {/* Idle state */}
                     {!isActive && (
-                      <div className="flex flex-col items-center justify-center h-full text-center gap-3">
+                      <div className="flex flex-col items-center justify-center h-full text-center gap-3 pt-20">
                         <div
                           className="w-14 h-14 rounded-2xl flex items-center justify-center animate-float"
                           style={{
-                            background: `linear-gradient(135deg, ${ACCENT_PINK}18, ${ACCENT_PINK}2e)`,
-                            border: `1.5px solid ${ACCENT_PINK}44`,
+                            background: `linear-gradient(135deg, ${ACCENT_PINK}55, ${ACCENT_PINK}33)`,
+                            border: `1.5px solid ${ACCENT_PINK}88`,
                           }}
                         >
                           <Image
@@ -976,10 +976,10 @@ export const BookiTeaserSection = () => {
                           />
                         </div>
                         <div className="space-y-1">
-                          <p className="text-white font-bold text-base">Hai! Aku Booki</p>
+                          <p className="text-gray-900 font-bold text-base">Hai! Aku Booki</p>
                           <p
                             className="text-xs leading-relaxed max-w-[220px] mx-auto"
-                            style={{ color: "rgba(255,255,255,0.5)" }}
+                            style={{ color: "rgba(0,0,0,0.55)" }}
                           >
                             Pilih pertanyaan di sebelah kiri, aku akan rekomendasikan
                             buku terbaik untukmu!
@@ -1036,10 +1036,10 @@ export const BookiTeaserSection = () => {
                             />
                           </div>
                           <div
-                            className="flex-1 px-3.5 py-2.5 rounded-2xl rounded-tl-sm text-sm text-gray-200 leading-relaxed"
+                            className="flex-1 px-3.5 py-2.5 rounded-2xl rounded-tl-sm text-sm text-gray-800 leading-relaxed"
                             style={{
-                              background: "rgba(255,255,255,0.06)",
-                              border: `1px solid ${GLASS_BORDER}`,
+                              background: "rgba(255,255,255,0.55)",
+                              border: `1px solid rgba(0,0,0,0.08)`,
                             }}
                           >
                             {displayedText}
@@ -1078,11 +1078,11 @@ export const BookiTeaserSection = () => {
                       className="text-[10px] font-bold uppercase tracking-widest mb-2 shrink-0 flex items-center gap-1.5"
                       style={{
                         color: isActive
-                          ? "rgba(255,255,255,0.45)"
-                          : "rgba(255,255,255,0.2)",
+                          ? "rgba(0,0,0,0.50)"
+                          : "rgba(0,0,0,0.25)",
                       }}
                     >
-                      <Zap size={9} style={{ color: isActive ? ACCENT_BLUE : "rgba(255,255,255,0.2)" }} />
+                      <Zap size={9} style={{ color: isActive ? ACCENT_BLUE : "rgba(0,0,0,0.20)" }} />
                       Rekomendasi Buku
                     </p>
 
@@ -1105,13 +1105,13 @@ export const BookiTeaserSection = () => {
                               style={{
                                 width: `${CARD_WIDTH}px`,
                                 minHeight: "100%",
-                                background: "rgba(255,255,255,0.03)",
-                                border: "1px dashed rgba(255,255,255,0.1)",
+                                background: "rgba(0,0,0,0.04)",
+                                border: "1px dashed rgba(0,0,0,0.15)",
                               }}
                             >
                               <BookMarked
-                                size={24}
-                                style={{ color: "rgba(255,255,255,0.15)" }}
+                                size={21}
+                                style={{ color: "rgba(0,0,0,0.20)" }}
                               />
                             </div>
                           ))}

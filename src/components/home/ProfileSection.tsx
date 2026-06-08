@@ -104,12 +104,12 @@ export const ProfileSection = () => {
   );
 
   return (
-    <section ref={sectionRef} id="profile-section" className="py-16 lg:py-24 bg-white">
+    <section ref={sectionRef} id="profile-section" className="pt-20 pb-32 lg:pt-28 lg:pb-40 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* ── Centered Section Title ── */}
-        <div className="text-center mb-12 lg:mb-16" data-profile-title="">
+        <div className="text-center mb-14 lg:mb-20" data-profile-title="">
           {/* Logo above title — 2× larger, unoptimized to preserve transparency */}
-          <div className="flex justify-center mb-5">
+          <div className="flex justify-center mb-6">
             <Image
               src="/logo.webp"
               alt="Logo Rumah Literasi Tambaksogra"
@@ -125,7 +125,7 @@ export const ProfileSection = () => {
         </div>
 
         {/* ── Two-Column Layout: Timeline (left) + Narrative (right) ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-start">
           {/* ── Left Column: Timeline ── */}
           <div className="space-y-0 order-1">
             <div className="relative">
@@ -139,7 +139,7 @@ export const ProfileSection = () => {
                 aria-hidden="true"
               />
 
-              <div className="space-y-8">
+              <div className="space-y-10">
                 {TIMELINE.map((milestone) => (
                   <div
                     key={milestone.year}
@@ -159,7 +159,7 @@ export const ProfileSection = () => {
                     </div>
 
                     {/* Content card */}
-                    <div className="flex-1 pb-2">
+                    <div className="flex-1 pb-3">
                       <span
                         className="text-xs font-bold uppercase tracking-wider"
                         style={{ color: milestone.accentColor }}
@@ -194,7 +194,7 @@ export const ProfileSection = () => {
               dan bermain bersama menjadi jembatan menuju mimpi yang lebih
               besar.
             </p>
-            <p className="text-sm sm:text-base text-gray-600 leading-loose mt-5">
+            <p className="text-sm sm:text-base text-gray-600 leading-loose mt-6">
               Sejak berdiri pada{" "}
               <strong className="text-gray-800">2016</strong>, kami membuka
               pintu selebar-lebarnya bagi anak usia pra-sekolah hingga SMA untuk
@@ -202,7 +202,7 @@ export const ProfileSection = () => {
               mahasiswa yang dengan penuh semangat berbagi pengalaman dan
               pengetahuan.
             </p>
-            <p className="text-sm sm:text-base text-gray-600 leading-loose mt-5">
+            <p className="text-sm sm:text-base text-gray-600 leading-loose mt-6">
               Bersama komunitas dan berbagai pihak yang peduli, kami percaya
               bahwa{" "}
               <strong className="text-gray-800">

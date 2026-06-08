@@ -49,7 +49,7 @@ const BookDetailPanel = ({ book, onClose }: BookDetailPanelProps) => {
         aria-label={`Detail buku: ${book.title}`}
       >
         {/* ── Header Bar ────────────────────────────────────────────── */}
-        <div className="flex items-center justify-between border-b border-gray-100 px-5 py-3">
+        <div className="flex items-center justify-between border-b border-gray-100 px-6 py-3.5">
           <div className="flex items-center gap-2 text-sm font-medium text-gray-500">
             <BookOpen className="h-4 w-4" />
             <span>Detail Buku</span>
@@ -69,8 +69,8 @@ const BookDetailPanel = ({ book, onClose }: BookDetailPanelProps) => {
         </div>
 
         {/* ── Scrollable Content ─────────────────────────────────────── */}
-        <div className="flex-1 overflow-y-auto scrollbar-thin px-5 py-6">
-          <div className="flex flex-col items-center gap-6">
+        <div className="flex-1 overflow-y-auto scrollbar-thin px-6 py-8">
+          <div className="flex flex-col items-center gap-8">
             {/* ── Cover Image ──────────────────────────────────────── */}
             <div className="relative aspect-[3/4] w-full max-w-[240px] overflow-hidden
               rounded-xl bg-neutral-cream shadow-md">
@@ -130,7 +130,7 @@ const BookDetailPanel = ({ book, onClose }: BookDetailPanelProps) => {
             </div>
 
             {/* ── Score Indicators ──────────────────────────────────── */}
-            <div className="grid w-full grid-cols-2 gap-3">
+            <div className="grid w-full grid-cols-2 gap-4">
               <div className="rounded-xl bg-brand-blue/5 px-4 py-3 text-center">
                 <p className="text-2xl font-bold text-brand-blue">
                   {scorePercent(book.similarity_score)}%
@@ -157,7 +157,7 @@ const BookDetailPanel = ({ book, onClose }: BookDetailPanelProps) => {
               <h4 className="mb-3 text-sm font-semibold uppercase tracking-wider text-gray-400">
                 Rangkuman Utama
               </h4>
-              <div className="rounded-xl bg-neutral-creamLight/60 px-4 py-4">
+              <div className="rounded-xl bg-neutral-creamLight/60 px-5 py-5">
                 <p className="whitespace-pre-line text-sm leading-relaxed text-gray-700">
                   {book.summary}
                 </p>
