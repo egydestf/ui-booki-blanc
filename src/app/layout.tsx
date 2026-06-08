@@ -23,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="id" className={`${plusJakartaSans.variable} scroll-smooth`} suppressHydrationWarning={true}>
+    <html lang="id" className={`${plusJakartaSans.variable} scroll-smooth`} data-scroll-behavior="smooth" suppressHydrationWarning={true}>
       <head>
         <ColorSchemeScript />
       </head>

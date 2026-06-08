@@ -210,7 +210,7 @@ export const HeroSection = () => {
                 alt={img.alt}
                 fill
                 className="object-cover"
-                sizes="100vw"
+                sizes="(max-width: 767px) 100vw, 0vw"
                 priority={i === 0}
               />
             </div>
