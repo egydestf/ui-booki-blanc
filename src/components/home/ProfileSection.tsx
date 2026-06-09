@@ -36,7 +36,7 @@ const TIMELINE: TimelineMilestone[] = [
       "Bermula dari ruang baca sederhana dengan koleksi buku sumbangan warga desa.",
     icon: BookOpen,
     accentColor: "#0A96E6",
-    bgColor: "bg-brand-blue/10",
+    bgColor: "#FFFFFF",
     borderColor: "border-brand-blue/30",
   },
   {
@@ -46,7 +46,7 @@ const TIMELINE: TimelineMilestone[] = [
       "Berkembang menjadi pusat pembelajaran komunitas dengan program kelas reguler.",
     icon: Lightbulb,
     accentColor: "#FBAD1A",
-    bgColor: "bg-brand-orange/10",
+    bgColor: "#FFFFFF",
     borderColor: "border-brand-orange/30",
   },
   {
@@ -56,7 +56,7 @@ const TIMELINE: TimelineMilestone[] = [
       "Meluncurkan Booki, asisten AI cerdas untuk rekomendasi buku belajar.",
     icon: Cpu,
     accentColor: "#E9559B",
-    bgColor: "bg-brand-pink/10",
+    bgColor: "#FFFFFF",
     borderColor: "border-brand-pink/30",
   },
 ];
@@ -128,10 +128,11 @@ export const ProfileSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-start">
           {/* ── Left Column: Timeline ── */}
           <div className="space-y-0 order-1">
-            <div className="relative">
-              {/* Vertical connecting line */}
+            <div className="relative isolate">
+
+              {/* Garis Vertikal - Diturunkan ke z-[-10] agar benar-benar tenggelam di bawah komponen apa pun */}
               <div
-                className="absolute left-[23px] top-6 bottom-6 w-0.5"
+                className="absolute left-[23px] top-6 bottom-6 w-0.5 z-[-10]"
                 style={{
                   background:
                     "linear-gradient(180deg, #0A96E6 0%, #FBAD1A 50%, #E9559B 100%)",
@@ -139,6 +140,7 @@ export const ProfileSection = () => {
                 aria-hidden="true"
               />
 
+              {/* Items wrapper */}
               <div className="space-y-10">
                 {TIMELINE.map((milestone) => (
                   <div
@@ -146,10 +148,11 @@ export const ProfileSection = () => {
                     data-timeline-item=""
                     className="relative flex gap-5"
                   >
-                    {/* Year circle */}
-                    <div className="relative z-10 shrink-0">
+                    {/* Year circle - Diperkuat dengan z-[20] dan paksa bg-white murni */}
+                    <div className="relative z-[20] shrink-0">
                       <div
-                        className={`w-12 h-12 rounded-full ${milestone.bgColor} border-2 ${milestone.borderColor} flex items-center justify-center shadow-sm`}
+                        className="w-12 h-12 rounded-full border-2 flex items-center justify-center shadow-sm bg-white"
+                        style={{ borderColor: milestone.accentColor }}
                       >
                         <milestone.icon
                           size={20}
@@ -159,7 +162,7 @@ export const ProfileSection = () => {
                     </div>
 
                     {/* Content card */}
-                    <div className="flex-1 pb-3">
+                    <div className="flex-1 pb-3 relative z-10">
                       <span
                         className="text-xs font-bold uppercase tracking-wider"
                         style={{ color: milestone.accentColor }}
