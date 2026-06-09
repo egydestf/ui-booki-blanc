@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { useState } from "react";
 import { X, BookOpen } from "lucide-react";
 import { Badge } from "@mantine/core";
 import type { BookRecommendation } from "@/types";
@@ -20,6 +20,7 @@ interface BookDetailPanelProps {
  * Displays enlarged cover, metadata badges, scores, and full summary.
  */
 const BookDetailPanel = ({ book, onClose }: BookDetailPanelProps) => {
+  const [imgError, setImgError] = useState(false);
   if (!book) return null;
 
   const scorePercent = (score: number) => Math.round(score * 100);
@@ -74,14 +75,13 @@ const BookDetailPanel = ({ book, onClose }: BookDetailPanelProps) => {
             {/* ── Cover Image ──────────────────────────────────────── */}
             <div className="relative aspect-[3/4] w-full max-w-[240px] overflow-hidden
               rounded-xl bg-neutral-cream shadow-md">
-              {book.cover_image ? (
-                <Image
+              {book.cover_image && !imgError ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
                   src={book.cover_image}
                   alt={`Sampul buku ${book.title}`}
-                  fill
-                  sizes="240px"
-                  className="object-cover"
-                  priority
+                  className="absolute inset-0 h-full w-full object-cover"
+                  onError={() => setImgError(true)}
                 />
               ) : (
                 <div className="flex h-full w-full items-center justify-center

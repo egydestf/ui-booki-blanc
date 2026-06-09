@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { useState } from "react";
 import type { BookRecommendation } from "@/types";
 
 // ── Props ────────────────────────────────────────────────────────────────────
@@ -17,6 +17,7 @@ interface BookCardProps {
  * cover image and the book title."
  */
 const BookCard = ({ book, onSelect }: BookCardProps) => {
+  const [imgError, setImgError] = useState(false);
   return (
     <button
       type="button"
@@ -33,14 +34,15 @@ const BookCard = ({ book, onSelect }: BookCardProps) => {
     >
       {/* ── Cover Image ───────────────────────────────────────────────── */}
       <div className="relative aspect-[3/4] w-full overflow-hidden bg-neutral-cream">
-        {book.cover_image ? (
-          <Image
+        {book.cover_image && !imgError ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
             src={book.cover_image}
             alt={`Sampul buku ${book.title}`}
-            fill
-            sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-            className="object-cover transition-transform duration-500 ease-out
-              group-hover:scale-105"
+            className="absolute inset-0 h-full w-full object-cover
+              transition-transform duration-500 ease-out group-hover:scale-105"
+            onError={() => setImgError(true)}
+            loading="lazy"
           />
         ) : (
           /* Fallback placeholder when no cover URL is available */

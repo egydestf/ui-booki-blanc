@@ -8,6 +8,15 @@ const nextConfig = {
         hostname: '*.supabase.co', // Allow images from Supabase Storage
         pathname: '/storage/v1/object/public/**',
       },
+      {
+        protocol: 'https',
+        hostname: '*.hf.space', // Allow images from Hugging Face Spaces (book covers)
+      },
+      {
+        protocol: 'https',
+        hostname: 'static-sc.cloudapp.web.id', // CDN Kemendikbud — sumber gambar sampul buku
+        pathname: '/content/image/**',
+      },
     ],
   },
   // Ensure Next.js edge runtime configurations are compatible with Cloudflare Pages

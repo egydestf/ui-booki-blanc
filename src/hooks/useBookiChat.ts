@@ -17,8 +17,10 @@ export interface UseBookiChatReturn {
 }
 
 // ── Constants ────────────────────────────────────────────────────────────────
-const API_URL =
-  process.env.NEXT_PUBLIC_BOOKI_API_URL ?? "http://localhost:7860/api/recommend";
+// Memanggil /api/chat (Next.js proxy) — BUKAN langsung ke backend eksternal.
+// Proxy ada di src/app/api/chat/route.ts dan meneruskan ke HF Spaces.
+// Menggunakan path relatif agar berfungsi di localhost maupun production.
+const API_URL = "/api/chat";
 
 /**
  * useBookiChat — Core state machine for the Booki conversational RAG interface.
