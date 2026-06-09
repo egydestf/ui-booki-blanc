@@ -7,3 +7,5 @@ export default defineCloudflareConfig({
 	// See https://opennext.js.org/cloudflare/caching for more details
 	// incrementalCache: r2IncrementalCache
 });
+
+
